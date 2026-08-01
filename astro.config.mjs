@@ -13,8 +13,8 @@ export default defineConfig({
       noExternal: true
     },
    },
-  server: {
-    host: process.env.HOST ?? "127.0.0.1",
-    port: Number(process.env.PORT ?? 3000),
-  },
+  // Baked into the standalone server at build time: the deploy sets no
+  // HOST/PORT, and the reverse proxy reaches this over the container's
+  // interface, so loopback-only would refuse the connection.
+  server: { host: "0.0.0.0", port: 3000 },
 });
