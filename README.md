@@ -21,6 +21,6 @@ om -p hermes app deploy --flake github:johnforfar/benchmark-site benchmark \
 ## Local preview
 
 ```sh
-python3 generate.py /path/to/benchmark-results ./out
-python3 -m http.server -d out 8080
+python3 generate.py /path/to/benchmark-results ./site   # then commit site/
+python3 -m http.server -d site 8080
 ```
