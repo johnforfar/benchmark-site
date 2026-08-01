@@ -1,0 +1,9 @@
+---
+import Base from "../layouts/Base.astro";
+import { Bench } from "../components/Bench";
+
+export const prerender = false;
+---
+<Base title="O1-BETA benchmark results">
+  <Bench client:only="react" />
+</Base>

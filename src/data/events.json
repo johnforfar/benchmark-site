@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "events": [
+    {
+      "ts": "2026-05-23T13:00:00Z",
+      "label": "vLLM-XPU enabled (TRITON workaround)",
+      "category": "harness",
+      "modality": ["text"],
+      "url": "https://github.com/vllm-project/vllm/issues/37828",
+      "color": "#a855f7"
+    },
+    {
+      "ts": "2026-05-23T17:05:00Z",
+      "label": "Stage 1 harness extraction · llama-cpp-vulkan on its own flake",
+      "category": "infra",
+      "modality": ["text"],
+      "url": "https://github.com/johnforfar/own1-apps/tree/stage1/own-ai-harness-llama-cpp-vulkan",
+      "color": "#f59e0b"
+    },
+    {
+      "ts": "2026-05-22T00:00:00Z",
+      "label": "Wan 2.2 + Lightning LoRA on Vulkan",
+      "category": "model",
+      "modality": ["video"],
+      "color": "#10b981"
+    },
+    {
+      "ts": "2026-05-20T00:00:00Z",
+      "label": "Bench prompts v2 methodology",
+      "category": "methodology",
+      "color": "#06b6d4"
+    }
+  ]
+}

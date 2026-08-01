@@ -1,0 +1,272 @@
+[
+ {
+  "schema_version": 3,
+  "machine_id": "5e4fe0a2c678a9a7",
+  "fingerprint": "198345859bb3d6e7",
+  "cpu_model": "Intel(R) Core(TM) Ultra 9 285H",
+  "cpu_threads": 16,
+  "gpu_pci_id": "8086:7d51",
+  "gpu_driver": "xe",
+  "ram_gb": 93.9,
+  "storage_gb": 930.5,
+  "power": {
+   "pl1_w": 54.0,
+   "pl2_w": 54.0,
+   "governor": "performance"
+  },
+  "bios_rev": "3480d87d",
+  "kernel_version": "6.18.32"
+ },
+ {
+  "schema_version": 3,
+  "machine_id": "5e4fe0a2c678a9a7",
+  "fingerprint": "215c129632210b2f",
+  "cpu_model": "Intel(R) Core(TM) Ultra 9 285H",
+  "cpu_threads": 16,
+  "gpu_pci_id": "8086:7d51",
+  "gpu_driver": "xe",
+  "ram_gb": 93.9,
+  "storage_gb": 930.5,
+  "power": {
+   "pl1_w": 54.0,
+   "pl2_w": 54.0,
+   "governor": "performance"
+  },
+  "bios_rev": "3480d87d",
+  "kernel_version": "6.18.26"
+ },
+ {
+  "schema_version": 3,
+  "machine_id": "5e4fe0a2c678a9a7",
+  "fingerprint": "33d76e8e5dbfc751",
+  "cpu_model": "Intel(R) Core(TM) Ultra 9 285H",
+  "cpu_threads": 16,
+  "gpu_pci_id": "8086:7d51",
+  "gpu_driver": "xe",
+  "ram_gb": 93.9,
+  "storage_gb": 930.5,
+  "power": {
+   "pl1_w": 54.0,
+   "pl2_w": 54.0,
+   "governor": "performance"
+  },
+  "bios_rev": "3480d87d",
+  "kernel_version": "6.18.32"
+ },
+ {
+  "schema_version": 3,
+  "machine_id": "5e4fe0a2c678a9a7",
+  "fingerprint": "4025037fd705c227",
+  "cpu_model": "Intel(R) Core(TM) Ultra 9 285H",
+  "cpu_threads": 16,
+  "gpu_pci_id": "8086:7d51",
+  "gpu_driver": "xe",
+  "ram_gb": 93.9,
+  "storage_gb": 930.5,
+  "power": {
+   "pl1_w": 54.0,
+   "pl2_w": 54.0,
+   "governor": "powersave"
+  },
+  "bios_rev": "3480d87d",
+  "kernel_version": "6.18.34"
+ },
+ {
+  "schema_version": 3,
+  "machine_id": "5e4fe0a2c678a9a7",
+  "fingerprint": "498f9e1d7344543c",
+  "cpu_model": "Intel(R) Core(TM) Ultra 9 285H",
+  "cpu_threads": 16,
+  "gpu_pci_id": "8086:7d51",
+  "gpu_driver": "xe",
+  "ram_gb": 93.9,
+  "storage_gb": 930.5,
+  "power": {
+   "pl1_w": 54.0,
+   "pl2_w": 54.0,
+   "governor": "powersave"
+  },
+  "bios_rev": "3480d87d",
+  "kernel_version": "6.18.32"
+ },
+ {
+  "schema_version": 3,
+  "machine_id": "5e4fe0a2c678a9a7",
+  "fingerprint": "57eb8f13687f19c3",
+  "cpu_model": "Intel(R) Core(TM) Ultra 9 285H",
+  "cpu_threads": 16,
+  "gpu_pci_id": "8086:7d51",
+  "gpu_driver": "xe",
+  "ram_gb": 93.9,
+  "storage_gb": 930.5,
+  "power": {
+   "pl1_w": 54.0,
+   "pl2_w": 54.0,
+   "governor": "performance"
+  },
+  "bios_rev": "3480d87d",
+  "kernel_version": "6.18.32"
+ },
+ {
+  "schema_version": 3,
+  "machine_id": "5e4fe0a2c678a9a7",
+  "fingerprint": "5f44f842972ccd1e",
+  "cpu_model": "Intel(R) Core(TM) Ultra 9 285H",
+  "cpu_threads": 16,
+  "gpu_pci_id": "8086:7d51",
+  "gpu_driver": "xe",
+  "ram_gb": 93.9,
+  "storage_gb": 930.5,
+  "power": {
+   "pl1_w": 54.0,
+   "pl2_w": 54.0,
+   "governor": "performance"
+  },
+  "bios_rev": "3480d87d",
+  "kernel_version": "6.18.32"
+ },
+ {
+  "schema_version": 3,
+  "machine_id": "5e4fe0a2c678a9a7",
+  "fingerprint": "6d4461bd6fe2cd05",
+  "cpu_model": "Intel(R) Core(TM) Ultra 9 285H",
+  "cpu_threads": 16,
+  "gpu_pci_id": "8086:7d51",
+  "gpu_driver": "xe",
+  "ram_gb": 93.9,
+  "storage_gb": 930.5,
+  "power": {
+   "pl1_w": 54.0,
+   "pl2_w": 54.0,
+   "governor": "powersave"
+  },
+  "bios_rev": "3480d87d",
+  "kernel_version": "6.18.26"
+ },
+ {
+  "schema_version": 3,
+  "machine_id": "5e4fe0a2c678a9a7",
+  "fingerprint": "8875b19eacbedd91",
+  "cpu_model": "Intel(R) Core(TM) Ultra 9 285H",
+  "cpu_threads": 16,
+  "gpu_pci_id": "8086:7d51",
+  "gpu_driver": "xe",
+  "ram_gb": 93.9,
+  "storage_gb": 930.5,
+  "power": {
+   "pl1_w": 54.0,
+   "pl2_w": 54.0,
+   "governor": "performance"
+  },
+  "bios_rev": "3480d87d",
+  "kernel_version": "6.18.26"
+ },
+ {
+  "schema_version": 3,
+  "machine_id": "5e4fe0a2c678a9a7",
+  "fingerprint": "9dd20d765052ca5d",
+  "cpu_model": "Intel(R) Core(TM) Ultra 9 285H",
+  "cpu_threads": 16,
+  "gpu_pci_id": "8086:7d51",
+  "gpu_driver": "xe",
+  "ram_gb": 93.9,
+  "storage_gb": 930.5,
+  "power": {
+   "pl1_w": 54.0,
+   "pl2_w": 54.0,
+   "governor": "powersave"
+  },
+  "bios_rev": "3480d87d",
+  "kernel_version": "6.18.26"
+ },
+ {
+  "schema_version": 3,
+  "machine_id": "5e4fe0a2c678a9a7",
+  "fingerprint": "b688b3e8562323c9",
+  "cpu_model": "Intel(R) Core(TM) Ultra 9 285H",
+  "cpu_threads": 16,
+  "gpu_pci_id": "8086:7d51",
+  "gpu_driver": "xe",
+  "ram_gb": 93.9,
+  "storage_gb": 930.5,
+  "power": {
+   "pl1_w": 54.0,
+   "pl2_w": 54.0,
+   "governor": "powersave"
+  },
+  "bios_rev": "3480d87d",
+  "kernel_version": "6.18.34"
+ },
+ {
+  "schema_version": 3,
+  "machine_id": "5e4fe0a2c678a9a7",
+  "fingerprint": "c0d08c039c41e09b",
+  "cpu_model": "Intel(R) Core(TM) Ultra 9 285H",
+  "cpu_threads": 16,
+  "gpu_pci_id": "8086:7d51",
+  "gpu_driver": "xe",
+  "ram_gb": 93.9,
+  "storage_gb": 930.5,
+  "power": {
+   "pl1_w": 54.0,
+   "pl2_w": 54.0,
+   "governor": "powersave"
+  },
+  "bios_rev": "3480d87d",
+  "kernel_version": "6.18.34"
+ },
+ {
+  "schema_version": 3,
+  "machine_id": "5e4fe0a2c678a9a7",
+  "fingerprint": "c2749db36d5e3765",
+  "cpu_model": "Intel(R) Core(TM) Ultra 9 285H",
+  "cpu_threads": 16,
+  "gpu_pci_id": "8086:7d51",
+  "gpu_driver": "xe",
+  "ram_gb": 93.9,
+  "storage_gb": 930.5,
+  "power": {
+   "pl1_w": 54.0,
+   "pl2_w": 54.0,
+   "governor": "powersave"
+  },
+  "bios_rev": "3480d87d",
+  "kernel_version": "6.18.35"
+ },
+ {
+  "schema_version": 3,
+  "machine_id": "5e4fe0a2c678a9a7",
+  "fingerprint": "e2d7493d7a4b0be5",
+  "cpu_model": "Intel(R) Core(TM) Ultra 9 285H",
+  "cpu_threads": 16,
+  "gpu_pci_id": "8086:7d51",
+  "gpu_driver": "xe",
+  "ram_gb": 93.9,
+  "storage_gb": 930.5,
+  "power": {
+   "pl1_w": 54.0,
+   "pl2_w": 54.0,
+   "governor": "powersave"
+  },
+  "bios_rev": "3480d87d",
+  "kernel_version": "6.18.26"
+ },
+ {
+  "schema_version": 3,
+  "machine_id": "5e4fe0a2c678a9a7",
+  "fingerprint": "fa8961d3e63b950a",
+  "cpu_model": "Intel(R) Core(TM) Ultra 9 285H",
+  "cpu_threads": 16,
+  "gpu_pci_id": "8086:7d51",
+  "gpu_driver": "xe",
+  "ram_gb": 93.9,
+  "storage_gb": 930.5,
+  "power": {
+   "pl1_w": 54.0,
+   "pl2_w": 54.0,
+   "governor": "performance"
+  },
+  "bios_rev": "3480d87d",
+  "kernel_version": "6.18.32"
+ }
+]

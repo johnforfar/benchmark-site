@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+html, body { font-family: ui-sans-serif, system-ui, -apple-system, "Inter", sans-serif; }
+* { -webkit-font-smoothing: antialiased; }
+
+/* Glass-window-friendly: html opaque (standalone fallback), body 12%-transparent
+   so when iframe-embedded inside the desktop's .glass-window the parent's 48px
+   backdrop-blur reads through enough to obscure the underlying window. */
+html { background: #0a0a0f; }
+body { background: rgba(10, 10, 15, 0.88); color: #e4e4e7; }
+:root[data-embedded] body, body[data-embedded] { background: transparent; }
+
+/* Override the AppLayout root's inline style="background: #0a0a0a" so it
+   doesn't paint opaque inside the iframe — important: AI.tsx and any sibling
+   render a hard-coded bg via React style={}, and React inline-style wins
+   over class selectors. We use [style*="..."] attribute selector with
+   higher specificity to override. */
+[style*="background: rgb(10, 10, 15)"],
+[style*="background:#0a0a0f"],
+[style*="background: #0a0a0f"],
+[style*="background: rgb(10, 10, 10)"],
+[style*="background:#0a0a0a"],
+[style*="background: #0a0a0a"] {
+  background: transparent !important;
+}
