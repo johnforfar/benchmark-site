@@ -1,26 +1,28 @@
 # O1-BETA benchmark results — public viewer
 
-Static site that renders the [benchmark-results](https://github.com/johnforfar/benchmark-results)
-dataset. Deployed to cloud hardware, so it **displays results only** — it never
-offers to run a benchmark, because a number produced anywhere other than the
-reference hardware is not comparable.
+Astro app serving the [benchmark-results](https://github.com/johnforfar/benchmark-results)
+dataset with the same components the on-device app uses, so the charts here and
+the charts an owner sees on their own machine are the same code rather than two
+implementations that drift.
 
-## How it works
-
-The dataset is a flake input. `generate.py` renders it to static HTML at build
-time, so the served bytes are a pure function of a pinned commit: no runtime
-fetching, no rate limits, and the deployment is reproducible from its inputs.
+**Results only.** No benchmark can be started here: this runs on cloud hardware,
+and a number produced anywhere other than the reference machine is not
+comparable. `/api/bench-trigger` returns 403 by design.
 
 ## Refresh after new results are merged
 
 ```sh
+python3 build-data.py /path/to/benchmark-results .   # bakes src/data + public/media
+git commit -am "refresh dataset" && git push
 om -p hermes app deploy --flake github:johnforfar/benchmark-site benchmark \
-  --update-input benchmark-results
+  --container xnodeos --firewall-port 3000
 ```
 
-## Local preview
+`--container xnodeos` is required: the default `xnode-manager` chassis module
+sets `services.resolved.extraConfig`, which current nixpkgs has removed.
+
+## Local
 
 ```sh
-python3 generate.py /path/to/benchmark-results ./site   # then commit site/
-python3 -m http.server -d site 8080
+npm install && npx astro build && node ./dist/server/entry.mjs   # needs node >= 22
 ```
