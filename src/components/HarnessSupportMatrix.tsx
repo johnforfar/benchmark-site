@@ -1,4 +1,4 @@
-// Static-data matrix of every harness Own1 might use, and what works
+// Static-data matrix of every harness the reference machine might use, and what works
 // on this hardware. The "what doesn't run" surface is as important as
 // "what runs" — saves us re-testing every cycle.
 // Sources: ENGINEERING/2026-05-23_VLLM-XPU-ON-ARC-140T-UNSUPPORTED.md
@@ -22,18 +22,18 @@ const ROWS: HarnessRow[] = [
     detail: "The only working LLM harness on Arc 140T iGPU. ~52 tok/s on Qwen3-0.6B-BF16." },
   { id: "vllm-xpu", label: "vLLM-XPU (vllm-omni)", category: "LLM",
     status: "active",
-    detail: "Works with Sam's TRITON-backend workaround (--attention-backend TRITON_ATTN + VLLM_MM_ENCODER_ATTN_BACKEND=TRITON env). Measured ~38 tok/s steady-state on Qwen3-0.6B-BF16 (vs llama.cpp Vulkan's ~52). Without TRITON flags: crashes on first inference with 'Only XE2/XE3 cutlass kernel' (Arc 140T is Xe-LPG+/Alchemist+).",
+    detail: "Works with the TRITON-backend workaround (--attention-backend TRITON_ATTN + VLLM_MM_ENCODER_ATTN_BACKEND=TRITON env). Measured ~38 tok/s steady-state on Qwen3-0.6B-BF16 (vs llama.cpp Vulkan's ~52). Without TRITON flags: crashes on first inference with 'Only XE2/XE3 cutlass kernel' (Arc 140T is Xe-LPG+/Alchemist+).",
     issue: { label: "vllm#37828", url: "https://github.com/vllm-project/vllm/issues/37828" } },
   { id: "sglang-xpu", label: "sglang-XPU", category: "LLM",
     status: "untested",
-    detail: "Sam asked us to test. Same Intel SYCL stack as vLLM-XPU — likely needs similar TRITON-backend workaround. No Plopmenz flake yet (needs our own derivation).",
+    detail: "Requested internally for evaluation. Same Intel SYCL stack as vLLM-XPU — likely needs similar TRITON-backend workaround. No upstream flake yet (needs our own derivation).",
     issue: { label: "vllm#37828", url: "https://github.com/vllm-project/vllm/issues/37828" } },
   { id: "llama-cpp-sycl", label: "llama.cpp SYCL", category: "LLM",
     status: "broken",
     detail: "5× slower than Vulkan on Arc; OpenVINO backend half-fails. Not worth pursuing unless Intel SYCL on iGPU matures." },
   { id: "llama-cpp-openvino", label: "llama.cpp OpenVINO", category: "LLM",
     status: "broken",
-    detail: "50% request failure rate measured 2026-04-06 (Sam's bench). Not production-ready on any HW." },
+    detail: "50% request failure rate measured 2026-04-06 (an internal bench). Not production-ready on any HW." },
   { id: "ollama", label: "Ollama (llama.cpp wrapper)", category: "LLM",
     status: "supported",
     detail: "Wrapper overhead reduces tok/s vs direct llama-server. Skip unless API compatibility forces it." },
@@ -116,7 +116,7 @@ export function HarnessSupportMatrix() {
       </div>
 
       <div className="mt-5 pt-4 border-t border-white/[0.04] text-[10px] text-white/40 leading-relaxed">
-        <span className="text-white/60">Source:</span> live measurements + upstream issue trackers, last verified 2026-05-23. To revisit when: Intel ships iGPU-supporting <code className="text-white/60">vllm-xpu-kernels</code> · llama.cpp lands Xe-LPG+ coopmat detection · Own1 gains a Battlemage discrete card.
+        <span className="text-white/60">Source:</span> live measurements + upstream issue trackers, last verified 2026-05-23. To revisit when: Intel ships iGPU-supporting <code className="text-white/60">vllm-xpu-kernels</code> · llama.cpp lands Xe-LPG+ coopmat detection · the reference machine gains a Battlemage discrete card.
       </div>
     </div>
   );

@@ -255,8 +255,8 @@ export function BenchHistory() {
       unit: "s/img", higherIsBetter: false,
       description: "Wall-clock per generated image. Bold line = best (lowest) ever achieved.",
       points: imgPts,
-      // Lightning-4steps LoRA target per Sam's 2026-05-25 chat: vllm-omni
-      // image-gen at 4 steps instead of 50 = ~30s gens once Sam uploads PEFT.
+      // Lightning-4steps LoRA target per an internal 2026-05-25 discussion: vllm-omni
+      // image-gen at 4 steps instead of 50 = ~30s gens once an internal contributor uploads PEFT.
       targetValue: 30,
       targetLabel: "Lightning 4-step target",
     });
@@ -400,7 +400,7 @@ export function BenchHistory() {
         <div className="relative">
           <div
             className="text-[10px] uppercase tracking-[0.2em] text-emerald-300/80 font-bold mb-2 cursor-help inline-block"
-            title='Every benchmark on this Own1 since day one. The bold line on each chart is the best result observed up to that date — the curve that matters when someone asks "is it getting faster?"'
+            title='Every benchmark on this machine since day one. The bold line on each chart is the best result observed up to that date — the curve that matters when someone asks "is it getting faster?"'
           >R&amp;D Progress · Live ⓘ</div>
           <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">
             {totalDays} days of optimisation. {dateRange ? `${dateRange.count.toLocaleString()} measured runs.` : ""}

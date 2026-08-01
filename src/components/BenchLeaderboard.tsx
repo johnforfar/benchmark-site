@@ -5,7 +5,7 @@ import { RunDetailModal, type RunModalState } from "./RunDetailModal";
 // One consolidated leaderboard. Sections per modality (Text / Image / Video /
 // …). Each row is a (model, harness) tuple, ranked within its modality.
 // Image and video rows include inline thumbnail strips. Video references
-// (Plopmenz HunyuanVideo) appear inline with a REFERENCE badge.
+// (upstream HunyuanVideo) appear inline with a REFERENCE badge.
 //
 // Replaces the prior BenchGraph + VideoBenchGraph + AllCombinationsLeaderboard
 // trio; same data sources, one place.
@@ -26,7 +26,7 @@ interface ChatImageRun {
   source?: "bench" | "user" | null;
   prompt?: string | null;
   thumb_url?: string | null;
-  // Curated footprint from /etc/own1-inference/recommendations.json (matrix +
+  // Curated footprint from the on-box recommendations file (matrix +
   // snapshot_pilots). null when the model isn't in the curated catalog.
   size_gb?: number | null;
   // Soft-validation keyword-match score for chat/coding/agents (0..1). null on
@@ -51,12 +51,12 @@ interface VideoRun {
 interface VideoModel { model_id: string; runs?: VideoRun[] }
 
 // External reference points. Reported numbers for the same diffusion model
-// on a fundamentally different hardware class — discrete dGPU vs Own1's
+// on a fundamentally different hardware class — discrete dGPU vs the reference machine's
 // integrated iGPU. The comparison answers "what would this look like on
-// a desktop card?", not "is Own1 slow." Source provenance kept in `source`.
+// a desktop card?", not "is the hardware slow." Source provenance kept in `source`.
 // 2026-06-17: HunyuanVideo external references dropped — they were on a
 // different hardware class and added noise without helping users pick a model.
-// Replace with locally-running rows once a 3rd video model lands on Own1.
+// Replace with locally-running rows once a 3rd video model lands on the reference machine.
 const VIDEO_REFERENCES: {
   label: string;
   hardware: string;
@@ -727,7 +727,7 @@ export function BenchLeaderboard() {
   });
 
   // ---- Voice (TTS + STT in one section) ----
-  // Both directions of voice work share an investor pitch: "Own1 talks to you
+  // Both directions of voice work share an investor pitch: "the machine talks to you
   // and listens." Render them in one section with per-row direction badges so
   // the units don't visually collide.
   const voiceRows: Row[] = [];
@@ -773,7 +773,7 @@ export function BenchLeaderboard() {
     modality: "voice",
     title: "Voice generation",
     unitLabel: "text → speech (chars/s) · speech → text (real-time factor) · higher = faster",
-    refLine: "Two directions in one section. TTS candidates on Own1: OuteTTS-0.3 (gguf via llama.cpp) · Qwen3-TTS (vLLM-omni — blocked upstream). STT candidates: whisper.cpp Vulkan · Qwen3-ASR-1.7B (vLLM-omni with TRITON_ATTN — Plopmenz-confirmed). Populates once bench-worker writes voice runs.",
+    refLine: "Two directions in one section. TTS candidates on the reference machine: OuteTTS-0.3 (gguf via llama.cpp) · Qwen3-TTS (vLLM-omni — blocked upstream). STT candidates: whisper.cpp Vulkan · Qwen3-ASR-1.7B (vLLM-omni with TRITON_ATTN — confirmed upstream). Populates once bench-worker writes voice runs.",
     rows: voiceRows,
   });
 
@@ -839,7 +839,7 @@ export function BenchLeaderboard() {
               </div>
               <span
                 className="text-[10px] text-white/30 font-mono uppercase tracking-wider cursor-help shrink-0"
-                title={`${sec.unitLabel}\n\n${sec.refLine}${sec.modality === "video" ? "\n\nWhy per-pixel? Resolution dominates wall time in diffusion. µs / pixel / video-sec normalises across resolutions so a 320×192 run is directly comparable to a 1280×704 one.\n\nReference rows are external numbers reported on a different hardware class (discrete GPU) for the same model family. They set the \"what a desktop card looks like\" anchor; Own1 entries are Arc 140T iGPU on the Beelink GTi15. Hover the reference badge for provenance." : ""}`}
+                title={`${sec.unitLabel}\n\n${sec.refLine}${sec.modality === "video" ? "\n\nWhy per-pixel? Resolution dominates wall time in diffusion. µs / pixel / video-sec normalises across resolutions so a 320×192 run is directly comparable to a 1280×704 one.\n\nReference rows are external numbers reported on a different hardware class (discrete GPU) for the same model family. They set the \"what a desktop card looks like\" anchor; Reference-hardware entries are Arc 140T iGPU on the the reference machine. Hover the reference badge for provenance." : ""}`}
               >
                 {sec.unitLabel} ⓘ
               </span>
@@ -856,7 +856,7 @@ export function BenchLeaderboard() {
             )}
 
             {(() => {
-              // Split rows into Own1 vs reference. Own1 capped to top-N
+              // Split rows into measured vs reference. Measured rows capped to top-N
               // unless expanded; references always shown beneath.
               // Visibility gate. Image + video are thumb-driven so we gate on
               // visible-thumb count (qwen-image · 256×256 was leaking through
@@ -947,7 +947,7 @@ export function BenchLeaderboard() {
                         {row.isReference && (
                           <span
                             className="text-[9px] uppercase tracking-wider text-amber-300/70 font-bold shrink-0 cursor-help"
-                            title={row.sourceNote ?? "External benchmark reference — not running on Own1; shown for comparison context"}
+                            title={row.sourceNote ?? "External benchmark reference — not running on the reference machine; shown for comparison context"}
                           >
                             external benchmark reference
                           </span>
