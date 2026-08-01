@@ -26,3 +26,5 @@ sets `services.resolved.extraConfig`, which current nixpkgs has removed.
 ```sh
 npm install && npx astro build && node ./dist/server/entry.mjs   # needs node >= 22
 ```
+
+<!-- probe -->
