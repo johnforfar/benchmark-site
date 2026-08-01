@@ -2,6 +2,16 @@
  {
   "schema_version": 3,
   "machine_id": "5e4fe0a2c678a9a7",
+  "fingerprint": "06d9b7b960069b59",
+  "power": {
+   "pl1_w": 54.0,
+   "pl2_w": 54.0,
+   "governor": "performance"
+  }
+ },
+ {
+  "schema_version": 3,
+  "machine_id": "5e4fe0a2c678a9a7",
   "fingerprint": "198345859bb3d6e7",
   "cpu_model": "Intel(R) Core(TM) Ultra 9 285H",
   "cpu_threads": 16,
@@ -70,6 +80,12 @@
   },
   "bios_rev": "3480d87d",
   "kernel_version": "6.18.34"
+ },
+ {
+  "schema_version": 3,
+  "machine_id": "5e4fe0a2c678a9a7",
+  "fingerprint": "44136fa355b3678a",
+  "power": {}
  },
  {
   "schema_version": 3,
@@ -178,6 +194,14 @@
   },
   "bios_rev": "3480d87d",
   "kernel_version": "6.18.26"
+ },
+ {
+  "schema_version": 3,
+  "machine_id": "5e4fe0a2c678a9a7",
+  "fingerprint": "a4aa140d7240164e",
+  "power": {
+   "governor": "performance"
+  }
  },
  {
   "schema_version": 3,
