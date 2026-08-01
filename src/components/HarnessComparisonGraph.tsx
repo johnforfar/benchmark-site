@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-// Per-model harness comparison. For each model on Own1, plot best observed
+// Per-model harness comparison. For each model on the reference machine, plot best observed
 // throughput per harness so the operator can answer "which harness is fastest
 // for this model on Arc 140T iGPU?". When vLLM-XPU bench-worker lands, it
 // auto-populates a 2nd bar per chat model.
@@ -191,7 +191,7 @@ export function HarnessComparisonGraph() {
     <div className="rounded-2xl p-6 border border-white/[0.06]" style={{ background: "rgba(20,20,28,0.55)" }}>
       <div className="flex items-baseline justify-between mb-1">
         <h2 className="text-base font-medium tracking-tight">Harness comparison · per model</h2>
-        <span className="text-[10px] text-white/30 font-mono uppercase tracking-wider">Beelink 285H · Arc 140T iGPU</span>
+        <span className="text-[10px] text-white/30 font-mono uppercase tracking-wider">Reference hardware · Arc 140T iGPU</span>
       </div>
       <div className="flex items-baseline justify-between mb-5 flex-wrap gap-2">
         <span className="text-[11px] text-white/40">Best observed throughput per (model, harness). ⭐ marks winner. New harnesses (vLLM-XPU) auto-appear as bench-worker runs them.</span>
@@ -252,7 +252,7 @@ export function HarnessComparisonGraph() {
       </div>
 
       <div className="mt-5 pt-4 border-t border-white/[0.04] text-[10px] text-white/40 leading-relaxed">
-        <span className="text-white/60">How to read:</span> models with only 1 bar mean only one harness on Own1 supports them today (sd.cpp Vulkan for image/video; llama.cpp Vulkan for chat). When vLLM-XPU bench-worker runs land, every chat model gains a 2nd bar.
+        <span className="text-white/60">How to read:</span> models with only 1 bar mean only one harness on the reference machine supports them today (sd.cpp Vulkan for image/video; llama.cpp Vulkan for chat). When vLLM-XPU bench-worker runs land, every chat model gains a 2nd bar.
       </div>
     </div>
   );

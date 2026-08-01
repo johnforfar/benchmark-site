@@ -21,12 +21,18 @@ import sys
 from pathlib import Path
 
 
+# The prompt catalogue names one image entry after the product, which would
+# publish the name in every record built from it.
+def scrub_entry(entry: str) -> str:
+    return entry.replace("-OWN1", "-brand").replace("-own1", "-brand")
+
+
 def to_run_meta(rec: dict) -> dict:
     r = rec.get("run") or {}
     c = rec.get("contention") or {}
     media = rec.get("media") or {}
     model = r.get("model") or ""
-    entry = r.get("entry_id") or ""
+    entry = scrub_entry(r.get("entry_id") or "")
     ts = rec.get("ts") or ""
 
     thumb = None

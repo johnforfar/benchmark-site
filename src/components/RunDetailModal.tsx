@@ -29,7 +29,7 @@ interface RunDetail {
     duration_s?: number;
     steps?: number;
     output?: string;
-    // Reproducibility (Sam 2026-05-24): bench-worker now echoes these into
+    // Reproducibility (an internal contributor 2026-05-24): bench-worker now echoes these into
     // result.json so users can copy + reproduce. null/undefined on legacy runs.
     temperature?: number;
     max_tokens?: number;
@@ -75,7 +75,7 @@ export const RunDetailModal = ({ state, onClose }: { state: RunModalState; onClo
         ? detail.high_noise_steps + detail.low_noise_steps : null);
   const vidSec = detail?.duration_seconds ?? null;
   const output = detail?.result?.output ?? null;
-  // Reproducibility fields (Sam 2026-05-24 ask). Populated on runs written after
+  // Reproducibility fields (an internal contributor 2026-05-24 ask). Populated on runs written after
   // the bench-worker reproducibility patch; null on older runs. The "Reproduce"
   // curl block below renders only when at least one is present.
   const temperature = detail?.result?.temperature;
@@ -94,7 +94,7 @@ export const RunDetailModal = ({ state, onClose }: { state: RunModalState; onClo
     ...(typeof temperature === "number" ? { temperature } : {}),
     ...(typeof seed === "number" ? { seed } : {}),
   }).replace(/'/g, "'\\''")}' \\
-  https://ai.buildooors.com/api/inference-chat` : null;
+  http://localhost:4334/api/inference-chat` : null;
 
   const reproCurlImage = (prompt && sizeStr && state.isVideo === false && !output) ? `curl -sk -H 'content-type: application/json' \\
   -d '${JSON.stringify({
@@ -104,7 +104,7 @@ export const RunDetailModal = ({ state, onClose }: { state: RunModalState; onClo
     ...(typeof steps === "number" ? { sample_steps: steps } : {}),
     ...(typeof seed === "number" ? { seed } : {}),
   }).replace(/'/g, "'\\''")}' \\
-  https://ai.buildooors.com/api/inference-images` : null;
+  http://localhost:4334/api/inference-images` : null;
 
   return (
     <div
@@ -198,7 +198,7 @@ export const RunDetailModal = ({ state, onClose }: { state: RunModalState; onClo
           {(reproCurlChat || reproCurlImage) && (
             <div className="mt-4">
               <div className="text-[9px] uppercase tracking-wider text-emerald-300/70 mb-1.5">
-                Reproduce · copy-paste to reproduce this exact run on Own1
+                Reproduce · copy-paste to reproduce this exact run on the reference machine
               </div>
               <pre className="text-[10px] leading-snug font-mono bg-black/40 border border-emerald-400/15 rounded-md p-3 overflow-x-auto text-white/80 whitespace-pre">{reproCurlChat ?? reproCurlImage}</pre>
               <div className="text-[9px] text-white/35 mt-1">

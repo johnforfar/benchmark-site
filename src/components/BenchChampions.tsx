@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 // Executive-summary card at top of the Benchmark tab. Picks the single
 // fastest (harness, model) tuple per modality and shows it as a big-number
-// stat. Designed for "what's the answer in 3 seconds" — Ashton's keynote.
+// stat. Designed for "what's the answer in 3 seconds" — the keynote view.
 
 interface Run {
   model_id: string;
@@ -131,7 +131,7 @@ export function BenchChampions() {
   return (
     <div className="rounded-2xl p-6 border border-white/[0.06]" style={{ background: "linear-gradient(135deg, rgba(16,185,129,0.06), rgba(99,102,241,0.04))" }}>
       <div className="flex items-baseline justify-between mb-5">
-        <h2 className="text-base font-medium tracking-tight">Best on this Own1</h2>
+        <h2 className="text-base font-medium tracking-tight">Best on this machine</h2>
         <span className="text-[10px] text-white/30 font-mono uppercase tracking-wider">fastest (harness, model) per modality</span>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
