@@ -623,7 +623,7 @@ export function BenchLeaderboard() {
           src, href,
         };
       });
-    const resLabel = (w && h) ? `${w}×${h}` : "?×?";
+    const resLabel = (w && h) ? `${w}×${h}` : "";
     // Append a tiny "u" or "b" hint to harness label so mixed-source rows are
     // visually distinguishable without an extra column.
     const sourceTag = userCount > 0 && benchCount > 0
@@ -631,7 +631,7 @@ export function BenchLeaderboard() {
       : userCount > 0 ? ` · user generations` : "";
     return {
       key: `${harness}::${model}::${resLabel}`,
-      model: `${model} · ${resLabel}`,
+      model: resLabel ? `${model} · ${resLabel}` : model,
       harness_id: harness,
       harness_label: `${HARNESS_LABEL[harness] ?? harness}${sourceTag}`,
       value: median, display: fmtMin(median),
@@ -642,7 +642,7 @@ export function BenchLeaderboard() {
     modality: "image",
     title: "Image generation",
     unitLabel: "median seconds / image · lower = faster · click thumb for detail",
-    refLine: "One row per (model · harness · resolution). Bench-worker runs + user generations from Own Images all rank here together. 512×512 vs 1024×1024 are very different workloads — kept separate.",
+    refLine: "One row per (model · harness · resolution). Bench-worker runs + user generations from the image app all rank here together. 512×512 vs 1024×1024 are very different workloads — kept separate.",
     rows: imgRows,
   });
 
@@ -839,7 +839,7 @@ export function BenchLeaderboard() {
               </div>
               <span
                 className="text-[10px] text-white/30 font-mono uppercase tracking-wider cursor-help shrink-0"
-                title={`${sec.unitLabel}\n\n${sec.refLine}${sec.modality === "video" ? "\n\nWhy per-pixel? Resolution dominates wall time in diffusion. µs / pixel / video-sec normalises across resolutions so a 320×192 run is directly comparable to a 1280×704 one.\n\nReference rows are external numbers reported on a different hardware class (discrete GPU) for the same model family. They set the \"what a desktop card looks like\" anchor; Reference-hardware entries are Arc 140T iGPU on the the reference machine. Hover the reference badge for provenance." : ""}`}
+                title={`${sec.unitLabel}\n\n${sec.refLine}${sec.modality === "video" ? "\n\nWhy per-pixel? Resolution dominates wall time in diffusion. µs / pixel / video-sec normalises across resolutions so a 320×192 run is directly comparable to a 1280×704 one.\n\nReference rows are external numbers reported on a different hardware class (discrete GPU) for the same model family. They set the \"what a desktop card looks like\" anchor; Reference-hardware entries are Arc 140T iGPU. Hover the reference badge for provenance." : ""}`}
               >
                 {sec.unitLabel} ⓘ
               </span>
